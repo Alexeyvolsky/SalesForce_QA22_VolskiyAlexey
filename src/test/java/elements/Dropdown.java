@@ -19,8 +19,6 @@ public class Dropdown extends BaseElement{
         WebElement dropdownButton = driver.findElement(By.xpath(String.format(BUTTON_LOCATOR,this.label)));
         scrollIntoView(dropdownButton);
         dropdownButton.click();
-//        WebElement option = driver.findElement(By.xpath(String.format(COMBOBOX_LOCATOR, label)));
-//        option.click();
         WebElement option = driver.findElement(By.xpath(String.format(COMBOBOX_LOCATOR, optionName)));
         option.click();
 

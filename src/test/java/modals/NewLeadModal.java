@@ -4,6 +4,7 @@ import elements.Dropdown;
 import elements.Input;
 import elements.TextArea;
 import io.qameta.allure.Description;
+import models.Lead;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -13,28 +14,26 @@ public class NewLeadModal extends BaseModal{
     public NewLeadModal(WebDriver driver) {
         super(driver);
     }
-    public void fillForm(String firstName, String lastName, String company, int phone, String title, String email, String website,
-                         String city, String state, int zipCode, String country, int employees, int annualRevenue, String street,
-                         String description, String leadStatus, String rating, String leadSource, String industry){
-        new Input(driver,"firstName").setValue(firstName);
-        new Input(driver,"lastName").setValue(lastName);
-        new Input(driver,"Company").setValue(company);
-        new Input(driver,"Phone").setValue(String.valueOf(phone));
-        new Input(driver,"Title").setValue(title);
-        new Input(driver,"Email").setValue(email);
-        new Input(driver,"Website").setValue(website);
-        new Input(driver,"city").setValue(city);
-        new Input(driver,"province").setValue(state);
-        new Input(driver,"postalCode").setValue(String.valueOf(zipCode));
-        new Input(driver,"country").setValue(country);
-        new Input(driver,"NumberOfEmployees").setValue(String.valueOf(employees));
-        new Input(driver,"AnnualRevenue").setValue(String.valueOf(annualRevenue));
-        new TextArea(driver,"255").setTextareaText(street);
-        new TextArea(driver,"32000").setTextareaText(description);
-        new Dropdown(driver, "Lead Status").selectByVisibleText(leadStatus);
-        new Dropdown(driver, "Rating").selectByVisibleText(rating);
-        new Dropdown(driver, "Lead Source").selectByVisibleText(leadSource);
-        new Dropdown(driver, "Industry").selectByVisibleText(industry);
+    public void fillForm(Lead lead){
+        new Input(driver,"firstName").setValue(lead.getFirstName());
+        new Input(driver,"lastName").setValue(lead.getLastName());
+        new Input(driver,"Company").setValue(lead.getCompany());
+        new Input(driver,"Phone").setValue(lead.getPhone());
+        new Input(driver,"Title").setValue(lead.getTitle());
+        new Input(driver,"Email").setValue(lead.getEmail());
+        new Input(driver,"Website").setValue(lead.getWebsite());
+//        new Input(driver,"city").setValue(lead.getCity());
+//        new Input(driver,"province").setValue(lead.getProvince());
+//        new Input(driver,"postalCode").setValue(lead.getPostalCode());
+//        new Input(driver,"country").setValue(lead.getCountry());
+//        new TextArea(driver,"255").setTextareaText(lead.getStreet());
+        new Input(driver,"NumberOfEmployees").setValue(lead.getNumberOfEmployees());
+        new Input(driver,"AnnualRevenue").setValue(lead.getAnnualRevenue());
+        new TextArea(driver,"32000").setTextareaText(lead.getDescription());
+        new Dropdown(driver, "Lead Status").selectByVisibleText(lead.getLeadStatus().getName());
+        new Dropdown(driver, "Rating").selectByVisibleText(lead.getRating().getName());
+        new Dropdown(driver, "Lead Source").selectByVisibleText(lead.getLeadSource().getName());
+        new Dropdown(driver, "Industry").selectByVisibleText(lead.getIndustry().getName());
 
 
 

@@ -34,7 +34,7 @@ public abstract class BaseTest {
         options.addArguments("--ignore-certificate-errors");
         options.addArguments("--disable-popup-blocking");
         options.addArguments("--disable-notifications");
-        driver = new ChromeDriver();
+        driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
         testContext.setAttribute("driver", driver);
@@ -50,8 +50,8 @@ public abstract class BaseTest {
     public void navigate(){
         driver.get(BASE_URL);
     }
-//    @AfterClass(alwaysRun = true)
-//    public void tearDown(){
-//        driver.quit();
-//    }
+    @AfterClass(alwaysRun = true)
+    public void tearDown(){
+        driver.quit();
+    }
 }

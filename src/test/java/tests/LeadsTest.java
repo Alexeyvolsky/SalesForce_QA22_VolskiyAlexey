@@ -1,5 +1,10 @@
 package tests;
 
+import enums.Industry;
+import enums.LeadSource;
+import enums.LeadStatus;
+import enums.Rating;
+import models.Lead;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -13,13 +18,14 @@ public class LeadsTest extends BaseTest{
         Assert.assertTrue(homePage.isUserIconDisplayed());
         homePage.openLeadsTab();
         leadsPage.clickNewButton();
-        newLeadModal.fillForm("Alexey","Volskiy", "QA22", 7788, "QA Engineer",
-                "aleksvolsky@gmail.com", "google.com", "Minsk", "Belartus", 220095, "MinskCity",
-                7, 10000, "Yakubova","Good employee","Contacted","Hot",
-                "Other", "Banking");
+        Lead testlead = new Lead.LeadBuilder().setFirstName("Alexey").setLastName("Volskiy").setCompany("QA22").
+                setPhone("7788").setTitle("QA Engineer").setEmail("aleksvolsky@gmail.com").setWebsite("google.com").
+                setNumberOfEmployees("7").setAnnualRevenue("$10,000").setDescription("Good employee")
+                .setLeadStatus(LeadStatus.NEW).setRating(Rating.HOT).setLeadSource(LeadSource.OTHER).setIndustry(Industry.BANKING)
+                .setFullName("Alexey Volskiy").build();
+        newLeadModal.fillForm(testlead);
         baseModal.clickSaveButton();
-        String email = "aleksvolsky@gmail.com";
-        Assert.assertEquals(leadDetailsPage.getEmail(),email);
+        Assert.assertEquals(leadDetailsPage.getLeadDetails(),testlead);
     }
 
 }
