@@ -1,0 +1,25 @@
+package enums;
+
+public enum Rating {
+    HOT("Hot"),
+    WARM("Warm"),
+    COLD("Cold");
+    private final String name;
+
+    Rating(final String name) {
+        this.name = name;
+    }
+
+    public static Rating fromString(String value) {
+        for (Rating rating : Rating.values()) {
+            if (rating.getName().equals(value)) {
+                return rating;
+            }
+        }
+        return null;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+}
