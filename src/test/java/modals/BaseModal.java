@@ -11,7 +11,8 @@ public class BaseModal extends BasePage {
     public BaseModal(WebDriver driver) {
         super(driver);
     }
-    public void clickSaveButton(){
+
+    public void clickSaveButton() {
         driver.findElement(SAVE_BUTTON).click();
     }
 }

@@ -12,12 +12,11 @@ public enum LeadSource {
     WEB("Web"),
     WORD("Word of mouth");
     private final String name;
+
     LeadSource(final String name) {
         this.name = name;
     }
-    public String getName() {
-        return this.name;
-    }
+
     public static LeadSource fromString(String value) {
         for (LeadSource leadSource : LeadSource.values()) {
             if (leadSource.getName().equals(value)) {
@@ -25,6 +24,10 @@ public enum LeadSource {
             }
         }
         return null;
+    }
+
+    public String getName() {
+        return this.name;
     }
 
 }

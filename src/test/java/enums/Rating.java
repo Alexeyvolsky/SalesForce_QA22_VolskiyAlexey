@@ -5,12 +5,11 @@ public enum Rating {
     WARM("Warm"),
     COLD("Cold");
     private final String name;
+
     Rating(final String name) {
         this.name = name;
     }
-    public String getName() {
-        return this.name;
-    }
+
     public static Rating fromString(String value) {
         for (Rating rating : Rating.values()) {
             if (rating.getName().equals(value)) {
@@ -18,5 +17,9 @@ public enum Rating {
             }
         }
         return null;
+    }
+
+    public String getName() {
+        return this.name;
     }
 }

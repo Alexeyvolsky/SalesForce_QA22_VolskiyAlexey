@@ -34,12 +34,11 @@ public enum Industry {
     TRANSPORTATION("Transportation"),
     UTILITIES("Utilities");
     private final String name;
+
     Industry(final String name) {
         this.name = name;
     }
-    public String getName() {
-        return this.name;
-    }
+
     public static Industry fromString(String value) {
         for (Industry industry : Industry.values()) {
             if (industry.getName().equals(value)) {
@@ -47,5 +46,9 @@ public enum Industry {
             }
         }
         return null;
+    }
+
+    public String getName() {
+        return this.name;
     }
 }

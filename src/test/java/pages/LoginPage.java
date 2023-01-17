@@ -8,14 +8,19 @@ public class LoginPage extends BasePage {
     private final static By passwordInput = By.id("password");
     private final static By loginButton = By.id("Login");
 
-    public LoginPage(WebDriver driver) {super(driver);}
-    public void clickLoginButton(){
+    public LoginPage(WebDriver driver) {
+        super(driver);
+    }
+
+    public void clickLoginButton() {
         driver.findElement(loginButton).click();
     }
-    public void setUserName(String userName){
+
+    public void setUserName(String userName) {
         driver.findElement(userNameInput).sendKeys(userName);
     }
-    public void setPassword(String password){
+
+    public void setPassword(String password) {
         driver.findElement(passwordInput).sendKeys(password);
     }
 }

@@ -26,8 +26,9 @@ public abstract class BaseTest {
     protected EntityBasePage entityBasePage;
     protected LoginPage loginPage;
     protected BaseModal baseModal;
+
     @BeforeClass(alwaysRun = true)
-    public void SetUp(ITestContext testContext){
+    public void SetUp(ITestContext testContext) {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
 //        options.addArguments("--headless");
@@ -46,12 +47,14 @@ public abstract class BaseTest {
         newLeadModal = new NewLeadModal(driver);
         baseModal = new BaseModal(driver);
     }
+
     @BeforeMethod(alwaysRun = true)
-    public void navigate(){
+    public void navigate() {
         driver.get(BASE_URL);
     }
+
     @AfterClass(alwaysRun = true)
-    public void tearDown(){
+    public void tearDown() {
         driver.quit();
     }
 }

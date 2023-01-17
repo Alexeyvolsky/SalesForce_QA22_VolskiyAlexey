@@ -11,9 +11,7 @@ public enum LeadStatus {
     LeadStatus(final String name) {
         this.name = name;
     }
-    public String getName() {
-        return this.name;
-    }
+
     public static LeadStatus fromString(String value) {
         for (LeadStatus leadStatus : LeadStatus.values()) {
             if (leadStatus.getName().equals(value)) {
@@ -21,5 +19,9 @@ public enum LeadStatus {
             }
         }
         return null;
+    }
+
+    public String getName() {
+        return this.name;
     }
 }
